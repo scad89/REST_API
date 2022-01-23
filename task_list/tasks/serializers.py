@@ -2,8 +2,10 @@ from rest_framework import serializers
 from .models import TaskTable
 
 
-class TaskTableSerializer(serializers.Serializer):
+class TaskTableSerializer(serializers.ModelSerializer):
+    id_user = serializers.SlugRelatedField(
+        slug_field='username', read_only=True)
+
     class Meta:
         model = TaskTable
-        fields = ('task_name', 'day_of_week', 'date',
-                  'comment', 'id_user', 'enabled')
+        exclude = ['enabled']

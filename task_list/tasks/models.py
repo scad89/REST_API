@@ -17,7 +17,7 @@ class TaskTable(models.Model):
         choices=Day.choices, max_length=9, default='SUN')
     date = models.DateTimeField(
         'Date', auto_now_add=False, null=True)
-    comment = models.CharField('Comment', max_length=100, blank=True)
+    comment = models.TextField('Comment')
     id_user = models.ForeignKey(
         User, related_name='user', on_delete=models.CASCADE, null=True, verbose_name='User')
     enabled = models.BooleanField('Enabled', default=False)
