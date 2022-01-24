@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'ckeditor',
     'ckeditor_uploader',
-    'djoser'
+    'djoser',
+    'drf_yasg'
 ]
 
 MIDDLEWARE = [
