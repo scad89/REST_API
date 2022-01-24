@@ -1,7 +1,10 @@
 from django.urls import path
+from rest_framework.urlpatterns import format_suffix_patterns
+
 from . import views
 
-urlpatterns = [
-    path('tasks/', views.TaskTableView.as_view(), name='tasks'),
-    path("tasks/<int:pk>/", views.TaskTableDetailView.as_view())
-]
+urlpatterns = format_suffix_patterns([
+    path("tasks/", views.TaskTableViewSet.as_view({'get': 'list'})),
+    path("tasks/<int:pk>/",
+         views.TaskTableViewSet.as_view({'get': 'retrieve'})),
+])

@@ -1,16 +1,14 @@
 from .models import TaskTable
 from .serializers import TaskTableSerializer
+from rest_framework import viewsets
 from rest_framework import generics
 
 
-class TaskTableView(generics.ListAPIView):
-    serializer_class = TaskTableSerializer
+class TaskTableViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = TaskTable.objects.all()
 
-    def get_queryset(self):
-        tasks = TaskTable.objects.filter(enabled=False)
-        return tasks
-
-
-class TaskTableDetailView(generics.RetrieveAPIView):
-    queryset = TaskTable.objects.filter(enabled=False)
-    serializer_class = TaskTableSerializer
+    def get_serializer_class(self):
+        if self.action == 'list':
+            return TaskTableSerializer
+        elif self.action == "retrieve":
+            return TaskTableSerializer
