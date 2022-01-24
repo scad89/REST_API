@@ -1,2 +1,4 @@
 /my_sand
+/task_list/static
 *.pyc
+/.vscode
