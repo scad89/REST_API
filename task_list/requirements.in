@@ -17,3 +17,4 @@ gunicorn
 pip-compile-multi
 psycopg2
 psycopg2-binary
+python-dotenv
