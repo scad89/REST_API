@@ -2,3 +2,5 @@
 /task_list/static
 *.pyc
 /.vscode
+task_list/task_list/settings_local.py
+task_list/.env
