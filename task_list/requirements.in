@@ -1,7 +1,7 @@
 sqlparse
 coreapi
 coreschema
-Django
+Django<4
 django-annoying
 django-ckeditor
 django-cors-headers
